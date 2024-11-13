@@ -45,7 +45,7 @@ export const Home = () => {
 
 			<div className="header-section">
 				<h2 className="section-title">Characters</h2>
-				<Link to="/all-films" className="fullscreen-link me-5">
+				<Link to="/AllCharacters" className="fullscreen-link me-5">
 					<Fullscreen size={48} />
 				</Link>
 			</div>
@@ -65,7 +65,7 @@ export const Home = () => {
 
 			<div className="header-section">
 				<h2 className="section-title">Planets</h2>
-				<Link to="/all-films" className="fullscreen-link me-5">
+				<Link to="/AllPlanets" className="fullscreen-link me-5">
 					<Fullscreen size={48} />
 				</Link>
 			</div>
@@ -85,7 +85,7 @@ export const Home = () => {
 
 			<div className="header-section">
 				<h2 className="section-title">Species</h2>
-				<Link to="/all-films" className="fullscreen-link me-5">
+				<Link to="/AllSpecies" className="fullscreen-link me-5">
 					<Fullscreen size={48} />
 				</Link>
 			</div>
@@ -105,7 +105,7 @@ export const Home = () => {
 
 			<div className="header-section">
 				<h2 className="section-title">Starships</h2>
-				<Link to="/all-films" className="fullscreen-link me-5">
+				<Link to="/AllStarships" className="fullscreen-link me-5">
 					<Fullscreen size={48} />
 				</Link>
 			</div>
@@ -125,7 +125,7 @@ export const Home = () => {
 
 			<div className="header-section">
 				<h2 className="section-title">Vehicles</h2>
-				<Link to="/all-films" className="fullscreen-link me-5">
+				<Link to="/AllVehicles" className="fullscreen-link me-5">
 					<Fullscreen size={48} />
 				</Link>
 			</div>

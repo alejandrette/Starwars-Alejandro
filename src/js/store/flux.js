@@ -19,9 +19,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			getCharacters: () => {
+			getCharacters: async (page) => {
 				try {
-					fetch('https://swapi.tech/api/people')
+					fetch(`https://swapi.tech/api/people${page === undefined ? '?page=1&limit=10' : page}`)
 						.then(resp => resp.json())
 						.then(data => setStore({Characters: data.results}))
 				} catch (error) {
@@ -29,9 +29,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			getPlanets: () => {
+			getPlanets: async (page) => {
 				try {
-					fetch('https://swapi.tech/api/planets')
+					fetch(`https://swapi.tech/api/planets${page === undefined ? '?page=1&limit=10' : page}`)
 						.then(resp => resp.json())
 						.then(data => setStore({Planets: data.results}))
 				} catch (error) {
@@ -39,9 +39,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			getSpecies: () => {
+			getSpecies: async (page) => {
 				try {
-					fetch('https://swapi.tech/api/species')
+					fetch(`https://swapi.tech/api/species${page === undefined ? '?page=1&limit=10' : page}`)
 						.then(resp => resp.json())
 						.then(data => setStore({Species: data.results}))
 				} catch (error) {
@@ -49,9 +49,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			getStarships: () => {
+			getStarships: async (page) => {
 				try {
-					fetch('https://swapi.tech/api/starships')
+					fetch(`https://swapi.tech/api/starships${page === undefined ? '?page=1&limit=10' : page}`)
 						.then(resp => resp.json())
 						.then(data => setStore({Starships: data.results}))
 				} catch (error) {
@@ -59,9 +59,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			getVehicles: () => {
+			getVehicles: async (page) => {
 				try {
-					fetch('https://swapi.tech/api/vehicles')
+					fetch(`https://swapi.tech/api/vehicles${page === undefined ? '?page=1&limit=10' : page}`)
 						.then(resp => resp.json())
 						.then(data => setStore({Vehicles: data.results}))
 				} catch (error) {
