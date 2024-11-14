@@ -23,7 +23,7 @@ export const AllPlanets = () => {
                         <img src={`https://starwars-visualguide.com/assets/img/planets/${planet.uid}.jpg`} alt={planet.name} />
                         <div className="card-body">
                             <h2 className="character-name">{planet.name}</h2>
-                            <Link to="" className="more-info-btn">
+                            <Link to={`/Information/planets/${planet.uid}`} className="more-info-btn">
                                 Learn More
                             </Link>
                         </div>

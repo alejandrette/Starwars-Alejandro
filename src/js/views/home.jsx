@@ -35,7 +35,7 @@ export const Home = () => {
 								<p>Producer: {film.properties.producer}</p>
 								<p>Director: {film.properties.director}</p>
 							</div>
-							<Link to="" className="card-button">
+							<Link to={`/Information/films/${film.uid}`} className="card-button">
 								Learn More
 							</Link>
 						</div>
@@ -55,7 +55,7 @@ export const Home = () => {
 						<img src={`https://starwars-visualguide.com/assets/img/characters/${character.uid}.jpg`} alt={character.name} />
 						<div className="card-content">
 							<h2 className="card-title">{character.name}</h2>
-							<Link to="" className="card-button">
+							<Link to={`/Information/people/${character.uid}`} className="card-button">
 								Learn More
 							</Link>
 						</div>
@@ -75,7 +75,7 @@ export const Home = () => {
 						<img src={`https://starwars-visualguide.com/assets/img/planets/${planet.uid}.jpg`} alt={planet.name} />
 						<div className="card-content">
 							<h2 className="card-title">{planet.name}</h2>
-							<Link to="" className="card-button">
+							<Link to={`/Information/planets/${planet.uid}`} className="card-button">
 								Learn More
 							</Link>
 						</div>
@@ -95,7 +95,7 @@ export const Home = () => {
 						<img src={`https://starwars-visualguide.com/assets/img/species/${specie.uid}.jpg`} alt={specie.name} />
 						<div className="card-content">
 							<h2 className="card-title">{specie.name}</h2>
-							<Link to="" className="card-button">
+							<Link to={`/Information/species/${specie.uid}`} className="card-button">
 								Learn More
 							</Link>
 						</div>
@@ -115,7 +115,7 @@ export const Home = () => {
 						<img src={`https://starwars-visualguide.com/assets/img/starships/${starship.uid}.jpg`} alt={starship.name} />
 						<div className="card-content">
 							<h2 className="card-title">{starship.name}</h2>
-							<Link to="" className="card-button">
+							<Link to={`/Information/starships/${starship.uid}`} className="card-button">
 								Learn More
 							</Link>
 						</div>
@@ -135,7 +135,7 @@ export const Home = () => {
 						<img src={`https://starwars-visualguide.com/assets/img/vehicles/${vehicle.uid}.jpg`} alt={vehicle.name} />
 						<div className="card-content">
 							<h2 className="card-title">{vehicle.name}</h2>
-							<Link to="" className="card-button">
+							<Link to={`/Information/vehicles/${vehicle.uid}`} className="card-button">
 								Learn More
 							</Link>
 						</div>

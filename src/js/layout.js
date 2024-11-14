@@ -8,7 +8,7 @@ import { AllPlanets } from "./views/all-components/AllPlanets.jsx";
 import { AllSpecies } from "./views/all-components/AllSpecies.jsx";
 import { AllStarships } from "./views/all-components/AllStarships.jsx";
 import { AllVehicles } from "./views/all-components/AllVehicles.jsx";
-import { Single } from "./views/single";
+import { Information } from "./views/Information.jsx";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -32,7 +32,7 @@ const Layout = () => {
 						<Route path="/AllSpecies" element={<AllSpecies />} />
 						<Route path="/AllStarships" element={<AllStarships />} />
 						<Route path="/AllVehicles" element={<AllVehicles />} />
-						<Route path="/single/:theid" element={<Single />} />
+						<Route path="/Information/:thecomponent/:theid" element={<Information />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
 					<Footer />

@@ -23,7 +23,7 @@ export const AllVehicles = () => {
                         <img src={`https://starwars-visualguide.com/assets/img/vehicles/${vehicle.uid}.jpg`} alt={vehicle.name} />
                         <div className="card-body">
                             <h2 className="character-name">{vehicle.name}</h2>
-                            <Link to="" className="more-info-btn">
+                            <Link to={`/Information/vehicles/${vehicle.uid}`} className="more-info-btn">
                                 Learn More
                             </Link>
                         </div>
