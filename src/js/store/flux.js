@@ -6,7 +6,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			Planets: [],
 			Species: [],
 			Starships: [],
-			Vehicles: []
+			Vehicles: [],
+			wishList: []
 		},
 		actions: {
 			getFilms: () => {
@@ -67,6 +68,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (error) {
 					console.error(error);
 				}
+			},
+
+			sendWishList: arr => {
+				setStore({ wishList: arr });
 			}
 		}
 	};

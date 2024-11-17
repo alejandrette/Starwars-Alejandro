@@ -1,8 +1,8 @@
-import React, { useContext, useEffect } from "react";
+import React, { act, useContext, useEffect, useState } from "react";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
-import { Fullscreen } from 'lucide-react';
+import { Fullscreen, Heart, HeartOff } from 'lucide-react';
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -13,6 +13,8 @@ export const Home = () => {
 	const starships = store.Starships;
 	const vehicles = store.Vehicles;
 
+	const [ wishList, setWishList ] = useState([]);
+
 	useEffect(() => {
 		actions.getFilms();
 		actions.getCharacters();
@@ -21,6 +23,17 @@ export const Home = () => {
 		actions.getStarships();
 		actions.getVehicles();
 	}, []);
+
+	const addWishList = name => {
+		setWishList(prev => prev.concat(name));
+	};
+
+	const deleteWishList = name => {
+		const newArray = wishList.filter(element => element != name);
+		setWishList(newArray);
+	};
+
+	useEffect(() => actions.sendWishList(wishList), [wishList]);
 
 	return (
 		<div className="films-section">
@@ -38,6 +51,12 @@ export const Home = () => {
 							<Link to={`/Information/films/${film.uid}`} className="card-button">
 								Learn More
 							</Link>
+							<div className="wishlist-icon">
+								{wishList.includes(film.properties.title) ? 
+									<HeartOff onClick={() => deleteWishList(film.properties.title)} /> : 
+									<Heart onClick={() => addWishList(film.properties.title)} />
+								}
+							</div>
 						</div>
 					</div>
 				))}
@@ -58,6 +77,12 @@ export const Home = () => {
 							<Link to={`/Information/people/${character.uid}`} className="card-button">
 								Learn More
 							</Link>
+							<div className="wishlist-icon">
+								{wishList.includes(character.name) ? 
+									<HeartOff onClick={() => deleteWishList(character.name)} /> : 
+									<Heart onClick={() => addWishList(character.name)} />
+								}
+							</div>
 						</div>
 					</div>
 				))}
@@ -78,6 +103,12 @@ export const Home = () => {
 							<Link to={`/Information/planets/${planet.uid}`} className="card-button">
 								Learn More
 							</Link>
+							<div className="wishlist-icon">
+								{wishList.includes(planet.name) ? 
+									<HeartOff onClick={() => deleteWishList(planet.name)} /> : 
+									<Heart onClick={() => addWishList(planet.name)} />
+								}
+							</div>
 						</div>
 					</div>
 				))}
@@ -98,6 +129,12 @@ export const Home = () => {
 							<Link to={`/Information/species/${specie.uid}`} className="card-button">
 								Learn More
 							</Link>
+							<div className="wishlist-icon">
+								{wishList.includes(specie.name) ? 
+									<HeartOff onClick={() => deleteWishList(specie.name)} /> : 
+									<Heart onClick={() => addWishList(specie.name)} />
+								}
+							</div>
 						</div>
 					</div>
 				))}
@@ -118,6 +155,12 @@ export const Home = () => {
 							<Link to={`/Information/starships/${starship.uid}`} className="card-button">
 								Learn More
 							</Link>
+							<div className="wishlist-icon">
+								{wishList.includes(starship.name) ? 
+									<HeartOff onClick={() => deleteWishList(starship.name)} /> : 
+									<Heart onClick={() => addWishList(starship.name)} />
+								}
+							</div>
 						</div>
 					</div>
 				))}
@@ -138,6 +181,12 @@ export const Home = () => {
 							<Link to={`/Information/vehicles/${vehicle.uid}`} className="card-button">
 								Learn More
 							</Link>
+							<div className="wishlist-icon">
+								{wishList.includes(vehicle.name) ? 
+									<HeartOff onClick={() => deleteWishList(vehicle.name)} /> : 
+									<Heart onClick={() => addWishList(vehicle.name)} />
+								}
+							</div>
 						</div>
 					</div>
 				))}

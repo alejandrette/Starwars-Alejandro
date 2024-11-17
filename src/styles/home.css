@@ -110,3 +110,20 @@
 .fullscreen-link:hover {
     color: #ffd700;
 }
+
+.wishlist-icon {
+    display: inline-block;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    cursor: pointer;
+    color: #ffe81f;
+    font-size: 1.5rem;
+    vertical-align: middle;
+    transition: transform 0.2s ease-in-out;
+}
+
+.wishlist-icon:hover {
+    color: #ffd700;
+    transform: scale(1.2);
+}

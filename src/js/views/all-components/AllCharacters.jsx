@@ -2,15 +2,28 @@ import React, { useContext, useEffect, useState } from "react";
 import "../../../styles/AllCharacters.css";
 import { Context } from "../../store/appContext";
 import { Link } from "react-router-dom";
+import { Fullscreen, Heart, HeartOff } from 'lucide-react';
 
 export const AllCharacters = () => {
     const { store, actions } = useContext(Context);
     const characters = store.Characters;
     const [ activePage, setActivePage ] = useState(1);
+	const [ wishList, setWishList ] = useState([]);
 
     useEffect(() => {
         actions.getCharacters();
     }, []);
+
+    const addWishList = name => {
+		setWishList(prev => prev.concat(name));
+	};
+
+	const deleteWishList = name => {
+		const newArray = wishList.filter(element => element != name);
+		setWishList(newArray);
+	}
+
+	useEffect(() => actions.sendWishList(wishList), [wishList]);
 
     return (
         <div>
@@ -26,6 +39,12 @@ export const AllCharacters = () => {
                             <Link to={`/Information/people/${character.uid}`} className="more-info-btn">
                                 Learn More
                             </Link>
+                            <div className="wishlist-icon">
+								{wishList.includes(character.name) ? 
+									<HeartOff onClick={() => deleteWishList(character.name)} /> : 
+									<Heart onClick={() => addWishList(character.name)} />
+								}
+							</div>
                         </div>
                     </div>
                 ))}

@@ -16,8 +16,6 @@ export const Information = () => {
 
 	useEffect(() => getInformation(), []);
 
-  console.log(result)
-
   const renderDisplay = () => {
     switch (component) {
       case 'films':
