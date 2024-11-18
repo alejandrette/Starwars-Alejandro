@@ -72,6 +72,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			sendWishList: arr => {
 				setStore({ wishList: arr });
+			},
+
+			addWishList: item => {
+				const store = getStore();
+				if (!store.wishList.includes(item)){
+					setStore({ wishList: [...store.wishList, item] });
+				};
+			},
+
+			deleteWishList: item => {
+				const store = getStore();
+				setStore({ wishList: store.wishList.filter(i => i !== item) })
 			}
 		}
 	};

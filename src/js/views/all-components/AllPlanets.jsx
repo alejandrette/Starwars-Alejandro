@@ -2,11 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import "../../../styles/AllCharacters.css";
 import { Context } from "../../store/appContext";
 import { Link } from "react-router-dom";
+import { Heart, HeartOff } from 'lucide-react';
 
 export const AllPlanets = () => {
     const { store, actions } = useContext(Context);
     const planets = store.Planets;
     const [ activePage, setActivePage ] = useState(1);
+	const { wishList } = store;
 
     useEffect(() => {
         actions.getPlanets();
@@ -26,6 +28,12 @@ export const AllPlanets = () => {
                             <Link to={`/Information/planets/${planet.uid}`} className="more-info-btn">
                                 Learn More
                             </Link>
+                            <div className="wishlist-icon">
+								{wishList.includes(planet.name) ? 
+									<HeartOff onClick={() => actions.deleteWishList(planet.name)} /> : 
+									<Heart onClick={() => actions.addWishList(planet.name)} />
+								}
+							</div>
                         </div>
                     </div>
                 ))}

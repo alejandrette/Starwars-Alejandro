@@ -5,16 +5,10 @@ import { BadgeX } from 'lucide-react';
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
-	const wishList = store.wishList;
-	const [ elementWishList, setElementWishList ] = useState([]);
+	const { wishList } = store;
 	const [ searchText, setSearchText ] = useState('');
 	const [ suggestions, setSuggestions ] = useState([]);
 	const navigate = useNavigate();
-
-	const deleteWishList = name => {
-		const newArray = wishList.filter(element => element != name);
-		setElementWishList(newArray);
-	};
 
 	const handleSearch = e => {
 		const text = e.target.value;
@@ -48,8 +42,6 @@ export const Navbar = () => {
 			};
 		}
 	}
-
-	useEffect(() => actions.sendWishList(elementWishList), [elementWishList]);
 
 	return (
 		<nav className="navbar navbar-dark bg-dark">
@@ -87,7 +79,7 @@ export const Navbar = () => {
 								<span>{wish}</span>
 								<BadgeX 
 									style={{color: 'red', cursor: 'pointer'}} 
-									onClick={() => deleteWishList(wish)} 
+									onClick={() => actions.deleteWishList(wish)} 
 								/>
 							</li>
 						)) : (
