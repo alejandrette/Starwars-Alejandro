@@ -44,7 +44,7 @@ export const Navbar = () => {
 	}
 
 	return (
-		<nav className="navbar navbar-dark bg-dark">
+		<nav className="navbar navbar-dark bg-dark d-flex">
 			<Link to="/" className="navbar-brand">
 				<img 
 					src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Star_Wars_Yellow_Logo.svg" 
@@ -52,13 +52,14 @@ export const Navbar = () => {
 					className="navbar-logo"
 				/>
 			</Link>
-			<div className="input-container mx-3">
+
+			<div className="input-container">
 				<input 
 					className="form-control search-input" 
 					list="datalistOptions" 
 					id="exampleDataList"
 					value={searchText}
-					onChange={handleSearch}	
+					onChange={handleSearch} 
 					onKeyDown={handleKeyDown}
 					placeholder="Search" 
 				/>
@@ -68,14 +69,23 @@ export const Navbar = () => {
 					))}
 				</datalist>
 			</div>
-			<div className="dropdown ml-auto dropstart">
-				<button className="btn btn-warning dropdown-toggle wishlist-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+			<div className="dropdown dropstart">
+				<button 
+					className="btn btn-warning dropdown-toggle wishlist-button" 
+					type="button" 
+					data-bs-toggle="dropdown" 
+					aria-expanded="false"
+				>
 					Wish List <span className="badge">{wishList.length}</span>
 				</button>
 				<ul className="dropdown-menu dropdown-menu-dark wishlist-dropdown">
 					{wishList.length > 0 ? 
 						wishList.map((wish, index) => (
-							<li key={index} className="dropdown-item wishlist-item d-flex justify-content-between align-items-center">
+							<li 
+								key={index} 
+								className="dropdown-item wishlist-item d-flex justify-content-between align-items-center"
+							>
 								<span>{wish}</span>
 								<BadgeX 
 									style={{color: 'red', cursor: 'pointer'}} 

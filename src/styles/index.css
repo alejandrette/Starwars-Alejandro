@@ -170,3 +170,33 @@ body {
 .suggestions-list li:hover {
     background: #eee;
 }
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .navbar-logo {
+        width: 50px;
+    }
+
+    .input-container {
+        flex-grow: 1;
+        max-width: 60%;
+        margin: 0 10px;
+    }
+
+    .search-input {
+        width: 100%;
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+
+    .wishlist-button {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+}

@@ -52,7 +52,7 @@ export const Home = () => {
 
 			<div className="header-section">
 				<h2 className="section-title">Characters</h2>
-				<Link to="/AllCharacters" className="fullscreen-link me-5">
+				<Link to="/AllCharacters" className="fullscreen-link me-5 ms-5">
 					<Fullscreen size={48} />
 				</Link>
 			</div>

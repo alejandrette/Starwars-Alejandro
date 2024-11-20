@@ -105,6 +105,7 @@
     color: #ffe81f;
     text-decoration: none;
     cursor: pointer;
+    margin-bottom: 25px;
 }
 
 .fullscreen-link:hover {
